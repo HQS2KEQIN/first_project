@@ -30,8 +30,8 @@ void show_user_info_bmp(long account,char *lcdbuf)
 	}
 	int width,high;
 	lseek(bmpfd,18,SEEK_SET);
-	read(bmpfd,&width,4);//¶ÁÈ¡¿í¶È
-	read(bmpfd,&high,4);//¶ÁÈ¡¸ß¶È
+	read(bmpfd,&width,4);//è¯»å–å®½åº¦
+	read(bmpfd,&high,4);//è¯»å–é«˜åº¦
 	int x_start = 0;
 	int y_start = 0;
 	char bmpbuf[3*width*high];
@@ -50,8 +50,8 @@ void show_user_info_bmp(long account,char *lcdbuf)
 	}
 	int width1,high1;
 	lseek(bmpfd1,18,SEEK_SET);
-	read(bmpfd1,&width1,4);//¶ÁÈ¡¿í¶È
-	read(bmpfd1,&high1,4);//¶ÁÈ¡¸ß¶È
+	read(bmpfd1,&width1,4);//è¯»å–å®½åº¦
+	read(bmpfd1,&high1,4);//è¯»å–é«˜åº¦
 	int x_start1 = 75;
 	int y_start1 = 90;
 	char bmpbuf1[3*width1*high1];
@@ -169,27 +169,27 @@ void input_info(STU head,long account)
 		t = t->next;
 	STU node = malloc(sizeof(stu));
 	node->account = account;
-	printf("ÄãÎ´Â¼ÈëĞÅÏ¢,ÇëÏÈÂ¼ÈëĞÅÏ¢\n");
+	printf("ä½ æœªå½•å…¥ä¿¡æ¯,è¯·å…ˆå½•å…¥ä¿¡æ¯\n");
 	printf("==============================\n");
-	printf("ÇëÊäÈëĞÕÃû");
+	printf("è¯·è¾“å…¥å§“å");
 	scanf("%s",node->name);
 	printf("==============================\n");
-	printf("ÇëÊäÈëÄêÁä");
+	printf("è¯·è¾“å…¥å¹´é¾„");
 	scanf("%d",&node->age);
 	printf("==============================\n");
-	printf("ÇëÊäÈëÑ§ºÅ");
+	printf("è¯·è¾“å…¥å­¦å·");
 	scanf("%d",&node->uid);
 	printf("==============================\n");
-	printf("ÇëÊäÈëÖ°Î»");
+	printf("è¯·è¾“å…¥èŒä½");
 	scanf("%s",node->position);
 	printf("==============================\n");
-	printf("ÇëÊäÈë×¡Ö·");
+	printf("è¯·è¾“å…¥ä½å€");
 	scanf("%s",node->home);
 	printf("==============================\n");
-	printf("ÇëÊäÈë°à¼¶");
+	printf("è¯·è¾“å…¥ç­çº§");
 	scanf("%s",node->class);
 	printf("==============================\n");
-	printf("ÇëÊäÈëĞÔ±ğ");
+	printf("è¯·è¾“å…¥æ€§åˆ«");
 	scanf("%s",node->sex);
 	t->next = node;
 	node->next = NULL;
@@ -209,15 +209,15 @@ void repair_value(long account,STU head_stu)
 		t = t->next;
 	}
 	int oper;
-	printf("ÇëÊäÈëÄãÏëĞŞ¸ÄµÄÄÚÈİ\n");
-	printf("(1.ÄêÁä 2.ĞÔ±ğ 3.×¡Ö· 4.Ö°Î» 5.Ñ§ºÅ 6.°à¼¶)\n");
+	printf("è¯·è¾“å…¥ä½ æƒ³ä¿®æ”¹çš„å†…å®¹\n");
+	printf("(1.å¹´é¾„ 2.æ€§åˆ« 3.ä½å€ 4.èŒä½ 5.å­¦å· 6.ç­çº§)\n");
 	scanf("%d",&oper);
 	switch(oper)
 	{
 		case 1:
 		{
 			int age ;
-			printf("ÇëÊäÈëÄêÁä:");
+			printf("è¯·è¾“å…¥å¹´é¾„:");
 			scanf("%d",&age);
 			t->age = age;
 			break;
@@ -225,7 +225,7 @@ void repair_value(long account,STU head_stu)
 		case 2:
 		{
 			char sex[5] = {0};
-			printf("ÇëÊäÈëĞÔ±ğ:");
+			printf("è¯·è¾“å…¥æ€§åˆ«:");
 			scanf("%s",sex);
 			stpcpy(t->sex,sex);
 			break;
@@ -233,7 +233,7 @@ void repair_value(long account,STU head_stu)
 		case 3:
 		{
 			char home[30] = {0};
-			printf("ÇëÊäÈë×¡Ö·:");
+			printf("è¯·è¾“å…¥ä½å€:");
 			scanf("%s",home);
 			stpcpy(t->home,home);
 			break;
@@ -241,7 +241,7 @@ void repair_value(long account,STU head_stu)
 		case 4:
 		{
 			char position[30] = {0};
-			printf("ÇëÊäÈëÖ°Î»:");
+			printf("è¯·è¾“å…¥èŒä½:");
 			scanf("%s",position);
 			stpcpy(t->position,position);
 			break;
@@ -249,7 +249,7 @@ void repair_value(long account,STU head_stu)
 		case 5:
 		{
 			int uid;
-			printf("ÇëÊäÈëÑ§ºÅ:");
+			printf("è¯·è¾“å…¥å­¦å·:");
 			scanf("%d",&uid);
 			t->uid = uid;
 			break;
@@ -257,14 +257,14 @@ void repair_value(long account,STU head_stu)
 		case 6:
 		{
 			char class[10] = {0};
-			printf("ÇëÊäÈë°à¼¶:");
+			printf("è¯·è¾“å…¥ç­çº§:");
 			scanf("%s",class);
 			stpcpy(t->class,class);
 			break;
 		}
 		default:
 		{
-			printf("ÎŞ´ËÏîĞÅÏ¢\n");
+			printf("æ— æ­¤é¡¹ä¿¡æ¯\n");
 			break;
 		}
 	}
@@ -277,7 +277,7 @@ void write_file(STU head)
 {
 	STU t = head->next;
 	FILE *file = fopen("../lib/stu_info.txt","w+");	
-	fprintf(file,"%s\n","ÓÃ»§ĞÅÏ¢");
+	fprintf(file,"%s\n","ç”¨æˆ·ä¿¡æ¯");
 	while(t!=NULL)	
 	{
 		fprintf(file,"%ld %s %d %d %s %s %s %s\n",t->account,t->name,t->age,t->uid,t->position,t->home,t->class,t->sex);
@@ -302,12 +302,14 @@ void user_oper(long user_name,INFO head_user)
 		show_user_info_font(head_stu,head_user,user_name);
 		int rett = panduan_user();
 		if(rett == 1)
+		{
+			show_user_info_emun(user_name);
 			repair_value(user_name,head_stu);
-
+		}
 		
 		else if(rett == 2)
 		{
-			printf("ÍË³ö\n");
+			printf("é€€å‡º\n");
 			write_file(head_stu);
 			free(head_stu);
 			break;
